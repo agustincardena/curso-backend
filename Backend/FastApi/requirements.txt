@@ -3,3 +3,5 @@ python-jose
 passlib
 bcrypt
 pymongo
+uvicorn
+mangum

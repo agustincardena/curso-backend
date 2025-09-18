@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from routers import products, users, basic_auth_users, jwt_auth_users, users_db
 from fastapi.staticfiles import StaticFiles
+from mangum import Mangum
 
 app = FastAPI()
 
@@ -17,6 +18,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get("/")
 async def root():
     return "Hola FastAPI!"
+
+handler = Mangum(app)
 
 
 @app.get("/url")

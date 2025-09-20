@@ -17,11 +17,11 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return "Hola FastAPI!"
-
-handler = Mangum(app)
+    return {"mesagge":"Hola FastAPI!"}
 
 
 @app.get("/url")
 async def url():
     return {"url": "https://mouredev.com/python"}
+
+handler = Mangum(app)
